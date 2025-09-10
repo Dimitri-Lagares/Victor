@@ -97,12 +97,12 @@ button:hover {
   opacity: 0.8;
 }
 
-/* NAVBAR */
+/* NAVBAR GENERAL */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--primary);
+  background: #014421; /* verde */
   padding: 10px 20px;
   color: white;
   position: sticky;
@@ -116,7 +116,7 @@ button:hover {
 }
 
 .nav-links {
-  display: flex;
+  display: flex;             /* por defecto: horizontal en PC */
   list-style: none;
   gap: 20px;
 }
@@ -132,19 +132,7 @@ button:hover {
   opacity: 0.7;
 }
 
-/* Controls (lang + theme) inside navbar */
-.controls {
-  display: flex;
-  gap: 8px;
-}
-
-.controls button {
-  background: white;
-  color: var(--primary);
-  font-weight: 600;
-}
-
-/* HAMBURGER */
+/* HAMBURGER (oculto en PC) */
 .hamburger {
   display: none;
   font-size: 1.5em;
@@ -154,24 +142,40 @@ button:hover {
   cursor: pointer;
 }
 
-/* MOBILE STYLES */
+/* SOLO EN MÓVIL */
 @media (max-width: 768px) {
   .nav-links {
-    display: none;
+    display: none;            /* oculto por defecto en móvil */
     flex-direction: column;
-    background: var(--primary);
+    align-items: center;
+    background: #014421;      /* verde oscuro */
     position: absolute;
     top: 60px;
-    right: 0;
-    width: 200px;
-    padding: 10px;
+    left: 0;
+    width: 100%;              /* ocupa todo el ancho */
+    padding: 20px 0;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   }
 
   .nav-links.show {
-    display: flex;
+    display: flex;            /* aparece cuando presionas ☰ */
+  }
+
+  .nav-links a {
+    padding: 12px;
+    color: white;
+    font-size: 1.1em;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none;
   }
 
   .hamburger {
-    display: block;
+    display: block;           /* solo visible en móvil */
   }
 }
